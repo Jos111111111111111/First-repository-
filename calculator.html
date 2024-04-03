@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator </title>
+</head>
+<body>
+<div id="main">
+<section>
+<div id="m"></div>
+<div id="m"></div>
+</section>
+<br>
+<input type="text" disabled id="text">
+<br>
+<div id="btns">
+<button onclick="add(1)" id="one">1</button>
+<button onclick="add(2)" id="one">2</button>
+<button  onclick="add(3)" id="one">3</button>
+<button onclick="del()">DEL</button>
+<button  onclick="add(4)" id="one">4</button>
+<button  onclick="add(5)" id="one">5</button>
+<button onclick="add(6)" id="one">6</button>
+<button onclick="erase()">AC</button>
+<button   onclick="add(7)" id="one" >7</button>
+<button   onclick="add(8)" id="one" >8</button>
+<button   onclick="add(9)" id="one">9</button>
+<button onclick="oper('*')">*</button>
+<button onclick="oper('+')" >+</button>
+<button  onclick="add(0)" id="one">0</button>
+<button onclick="sym('.')">.</button>
+<button onclick="oper('-')">-</button>
+<button onclick="sym('(')">(</button>
+<button onclick="sym(')')">)</button>
+<button onclick="oper('/')">/</button>
+<button onclick="anw()">=</button>
+</div>
+</div>
+<style>
+*{
+padding:0;
+margin:0;
+}
+span{
+position: absolute;
+right:30px;
+
+}
+section {
+display:flex;
+gap:5px;
+}
+#m{
+
+background: black;
+width:10px;
+height:10px;
+border-radius:50%;
+}
+button {
+padding:10px;
+}
+#btns{
+display: grid;
+grid-template-columns:1fr 1fr 1fr 1fr;
+padding:10px;
+gap:10px;
+border:0px solid black;
+}
+#text{
+height:39px;
+width:90%;
+margin:17px auto;
+padding:10px;
+font-family:serif;
+}
+{
+
+height:100vh;
+width:100%;
+}
+#main{
+padding:10px;
+width:80%;
+height:400px;
+background:rgba(0,0,0,0.2);
+border-radius:8px;
+box-shadow:2px 2px 2px cyan;
+margin:25px auto;
+dlisplay: flex ;
+justify-content:center;
+}
+h2{
+color: white ; 
+font-weight:900;
+}
+</style> 
+<script>
+function add(n){
+const num=document.querySelector('#one')
+const text=document.querySelector('#text')
+text.value +=n
+
+}
+function sym(n){
+text.value +=n
+}
+function anw(){
+try
+{
+text.style.color="black"
+text.value=(eval(text.value))
+}
+catch {
+text.style.color="red"
+text.value="Syntax Error "
+}
+}
+
+
+function oper(n){
+text.value +=n
+}
+function erase(){
+
+text.value=''
+text.style.color="black" ;
+}
+
+function del(){
+text.value = text.value.slice(0,-1)
+}
+
+function adda(n){
+
+text.value=+Math.sqrt(n)
+}
+</script>
+</body>
+</html>
